@@ -119,7 +119,7 @@ const TemplatesPage = () => {
       image: '🏗️'
     },
      {
-      id: 'Drink',
+      id: 'drink',
       title: 'Bebidas',
       description: 'Portfólio de projetos com modelos 3D de construções',
       price: 450,
