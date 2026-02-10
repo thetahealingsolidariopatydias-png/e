@@ -39,7 +39,7 @@ function App() {
             <Route path="/template/:id" element={<CafeTemplate />} />
          
          
-        </Routes>
+        </Routes>d
 
         {/* Footer Global */}
         <Footer />
