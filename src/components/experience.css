@@ -1,0 +1,99 @@
+.experience-section {
+  position: relative;
+  height: 200vh;
+  overflow: hidden;
+  background: #0a0a0a;
+  color: white;
+}
+
+/* FUNDO CIDADE */
+.city-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("/city.jpg"); /* coloque sua imagem */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.25;
+  z-index: 1;
+}
+
+/* TEXTO GIGANTE ATRÁS */
+.background-text {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 9vw;
+  font-weight: 900;
+  opacity: 0.04;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* AVIÃO PASSANDO */
+.plane {
+  position: fixed;
+  top: 20%;
+  left: -200px;
+  width: 180px;
+  height: 80px;
+  background-image: url("/plane.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 4;
+  animation: planeMove 18s linear infinite;
+}
+
+@keyframes planeMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+/* CARDS */
+.reveal-card {
+  position: relative;
+  width: 420px;
+  padding: 40px;
+  margin: 160px auto;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  z-index: 5;
+
+  opacity: 0;
+  transform: translateY(80px);
+  transition: 0.8s ease;
+}
+
+.reveal-card.left {
+  margin-left: 8%;
+  transform: translateX(-120px);
+}
+
+.reveal-card.right {
+  margin-right: 8%;
+  transform: translateX(120px);
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+.reveal-card.active {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .reveal-card {
+    width: 85%;
+    margin: 120px auto;
+  }
+
+  .reveal-card.left,
+  .reveal-card.right {
+    margin: 120px auto;
+  }
+}
