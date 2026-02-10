@@ -31,10 +31,12 @@ function App() {
           <Route path="/template/cafepro" element={<CafeTemplatePro />} />
           <Route path="/template/cafepro2" element={<CafeTemplatePro2 />} />
           {/* Podemos adicionar mais templates depois */}
-          <Route path="/template/:id" element={<CafeTemplate />} />
+        
           <Route path="/template/viagens" element={<TravelTemplate />} />
           <Route path="/template/viagensPro" element={<TravelTemplatePro />} />
           <Route path="/template/drink" element={<Drink />} />
+
+            <Route path="/template/:id" element={<CafeTemplate />} />
          
          
         </Routes>
