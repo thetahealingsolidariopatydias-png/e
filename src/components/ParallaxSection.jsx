@@ -8,20 +8,20 @@ Aqui você importa cada layer normalmente.
 Depois basta adicionar no array "backgroundLayers".
 ===================================================== */
 
-import layer2 from "../assets/layers/2.WEBP";
-import layer4 from "../assets/layers/4.WEBP";//nuvens
-import layer5 from "../assets/layers/5.WEBP";//nuvens    
-import layer6 from "../assets/layers/6.WEBP";
+import layer2 from "../assets/layers/2.webp";
+import layer4 from "../assets/layers/4.webp";//nuvens
+import layer5 from "../assets/layers/5.webp";//nuvens    
+import layer6 from "../assets/layers/6.webp";
 import layer8 from "../assets/layers/8.png";
-import layer9 from "../assets/layers/9.WEBP";
+import layer9 from "../assets/layers/9.webp";
 import layer11 from "../assets/layers/11.png";//FOG
 import layer12 from "../assets/layers/12.png";//titulo minas gerais
-import layer13 from "../assets/layers/13.WEBP";
-import layer14 from "../assets/layers/14.WEBP";
+import layer13 from "../assets/layers/13.webp";
+import layer14 from "../assets/layers/14.webp";
 import layer15 from "../assets/layers/15.png";//fog
-import layer17 from "../assets/layers/17.WEBP";
-import layer18 from "../assets/layers/18.WEBP";
-import layer20 from "../assets/layers/20.WEBP";
+import layer17 from "../assets/layers/17.webp";
+import layer18 from "../assets/layers/18.webp";
+import layer20 from "../assets/layers/20.webp";
 import layer22 from "../assets/layers/22.png";//fog
 import layer23 from "../assets/layers/23.png";//fog
 
