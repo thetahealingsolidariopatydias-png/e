@@ -20,7 +20,7 @@ export default function ToguroRandomGif() {
     <AnimatePresence>
       {show && (
         <motion.img
-          src="../../public/textures/toguro.png"
+          src="/textures/toguro.png"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 100 }}
