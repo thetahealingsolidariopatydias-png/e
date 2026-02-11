@@ -74,4 +74,19 @@ export const FLAVORS = [
     fruits: ["/textures/strongberryICON.png"],
     texture: "/textures/strongberry.png",
   },
+  {
+    id: "tigrinho",
+    name: "Tigrinho",
+    description:
+      "Doce marcante do Tigre, levemente azedo e extremamente refrescante.",
+    aroma: "Morangos do amor frescos",
+    sweetness: "Baixo",
+    acidity: "Média",
+    price: "R$ 8,90",
+    concept: "Inspirado em bebidas naturais mediterrâneas",
+    color: "#FFA500",
+    bg: "/textures/tigrinhobg.png",
+    fruits: ["/textures/tigrinhoICON.png"],
+    texture: "/textures/tigrinho.png",
+  },
 ];
