@@ -59,4 +59,19 @@ export const FLAVORS = [
     fruits: ["/textures/cherryICON.png"],
     texture: "/textures/cherry.png",
   },
+   {
+    id: "strongberry",
+    name: "Strongberry",
+    description:
+      "Doce marcante, levemente azedo e extremamente refrescante.",
+    aroma: "Morangos do amor frescos",
+    sweetness: "Baixo",
+    acidity: "Média",
+    price: "R$ 8,90",
+    concept: "Inspirado em bebidas naturais mediterrâneas",
+    color: "#FFA500",
+    bg: "/textures/strongberrybg.png",
+    fruits: ["/textures/strongberryICON.png"],
+    texture: "/textures/strongberry.png",
+  },
 ];
