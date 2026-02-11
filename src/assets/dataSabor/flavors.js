@@ -44,4 +44,19 @@ export const FLAVORS = [
     fruits: ["/textures/blueberryICON.png"],
     texture: "/textures/blueberry.png",
   },
+   {
+    id: "cherry",
+    name: "Cherry",
+    description:
+      "Doce marcante, levemente azedo e extremamente refrescante.",
+    aroma: "Cerejas frescas",
+    sweetness: "Baixo",
+    acidity: "Média",
+    price: "R$ 8,90",
+    concept: "Inspirado em bebidas naturais mediterrâneas",
+    color: "#FFA500",
+    bg: "/textures/cherrybg.png",
+    fruits: ["/textures/cherryICON.png"],
+    texture: "/textures/cherry.png",
+  },
 ];
