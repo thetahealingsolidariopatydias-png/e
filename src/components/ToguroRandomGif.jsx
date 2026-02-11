@@ -20,12 +20,12 @@ export default function ToguroRandomGif() {
     <AnimatePresence>
       {show && (
         <motion.img
-          src="/gifs/toguro.gif"
+          src="../../public/textures/toguro.webp"
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 100 }}
           transition={{ duration: 0.4 }}
-          className="fixed bottom-6 right-6 w-40 z-[9999] pointer-events-none"
+          className="fixed bottom-6 right-6 w-80 z-[9999] pointer-events-none"
         />
       )}
     </AnimatePresence>
