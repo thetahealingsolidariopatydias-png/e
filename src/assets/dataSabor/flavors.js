@@ -29,4 +29,19 @@ export const FLAVORS = [
     fruits: ["/textures/laranjaICON.png"],
     texture: "/textures/laranja.png",
   },
+  {
+    id: "blueberry",
+    name: "Blueberry",
+    description:
+      "Doce marcante, levemente azedo e extremamente refrescante.",
+    aroma: "Amoras fresca",
+    sweetness: "Baixo",
+    acidity: "Média",
+    price: "R$ 8,90",
+    concept: "Inspirado em bebidas naturais mediterrâneas",
+    color: "#FFA500",
+    bg: "/textures/blueberrybg.jpg",
+    fruits: ["/textures/blueberryICON.png"],
+    texture: "/textures/blueberry.png",
+  },
 ];
