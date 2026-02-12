@@ -1,7 +1,15 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Canvas } from "@react-three/fiber";
-import { Globe, Phone, MapPin, Shield } from "lucide-react";
+import {
+  Phone,
+  MapPin,
+  Shield,
+  Wine,
+  Facebook,
+  Instagram,
+  Mail
+} from "lucide-react";
 
 import CanModel from "../components/CanModel";
 import { FLAVORS } from "../assets/dataSabor/flavors";
@@ -15,7 +23,7 @@ const Drink = () => {
   const [flavorIndex, setFlavorIndex] = useState(0);
   const flavor = FLAVORS[flavorIndex];
 
-  // 🔊 SISTEMA DE ÁUDIO — USADO UMA ÚNICA VEZ
+  // 🔊 ÁUDIO (usado apenas uma vez)
   const {
     unlockAudio,
     startBG,
@@ -24,51 +32,51 @@ const Drink = () => {
     setVolume,
   } = useToguroAudio();
 
-  // 🔓 primeira interação (necessário pra autoplay)
   const ensureAudioStarted = () => {
     if (!startedRef.current) {
-      unlockAudio();     // libera autoplay (browser)
-      startBG();         // começa som ambiente em loop
-      setVolume(0.5);    // volume inicial
+      unlockAudio();
+      startBG();
+      setVolume(0.5);
       startedRef.current = true;
     }
   };
 
-  // 🍹 clique na lata
   const handleCanClick = () => {
     ensureAudioStarted();
 
     setFlavorIndex((prev) => (prev + 1) % FLAVORS.length);
-    playRandomFrase();     // frase aleatória
-    pauseBGFor(0);      // pausa bg por 1.5s e volta sozinho
+    playRandomFrase();
+    pauseBGFor(0);
   };
 
   return (
     <div
       ref={containerRef}
-      className="relative text-white min-h-screen overflow-hidden"
-      onClick={ensureAudioStarted} // qualquer clique desbloqueia áudio
+      className="relative isolate text-white min-h-screen overflow-hidden"
+      onClick={ensureAudioStarted}
     >
-      {/* FUNDO */}
+      {/* BACKGROUND */}
       <motion.div
         key={flavor.id}
-        className="absolute inset-0 z-0 bg-cover bg-center"
+        className="absolute inset-0 -z-20 bg-cover bg-center"
         style={{ backgroundImage: `url(${flavor.bg})` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       />
 
+      {/* OVERLAY */}
+      <div className="absolute inset-0 -z-10 bg-black/30 backdrop-blur-sm" />
+
+      {/* GIF lateral */}
       <ToguroRandomGif />
 
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm z-5" />
-
-      {/* FRUTAS */}
+      {/* FRUTAS FLUTUANTES */}
       {flavor.fruits.map((fruit, idx) => (
         <motion.img
           key={idx}
           src={fruit}
-          className="absolute w-24 h-24 z-10"
+          className="absolute w-24 h-24 z-10 pointer-events-none"
           animate={{ y: [0, 20, 0] }}
           transition={{ repeat: Infinity, duration: 4 + idx }}
           style={{
@@ -78,8 +86,9 @@ const Drink = () => {
         />
       ))}
 
-      {/* CONTEÚDO */}
-      <section className="relative flex flex-col md:flex-row items-center justify-center md:h-screen px-8 md:px-32 z-20 pt-10 pb-20">
+      {/* CONTEÚDO PRINCIPAL */}
+      <section className="relative z-20 flex flex-col md:flex-row items-center justify-center md:h-screen px-8 md:px-32 pt-10 pb-20">
+        
         {/* LATA 3D */}
         <div className="relative w-full md:w-1/2 h-[500px] md:h-[600px] flex justify-center items-end md:items-center">
           <Canvas
@@ -96,13 +105,16 @@ const Drink = () => {
           </Canvas>
         </div>
 
-        {/* INFO */}
+        {/* INFO DO SABOR */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          className="md:ml-16 w-full md:w-1/3 bg-gray-900/70 backdrop-blur-sm rounded-3xl p-8"
+          className="md:ml-16 w-full md:w-1/3 bg-gray-900/70 backdrop-blur-md rounded-3xl p-8 shadow-2xl"
         >
-          <h2 className="text-4xl font-bold mb-2" style={{ color: flavor.color }}>
+          <h2
+            className="text-4xl font-bold mb-2"
+            style={{ color: flavor.color }}
+          >
             {flavor.name}
           </h2>
 
@@ -116,36 +128,78 @@ const Drink = () => {
             <p><strong>Conceito:</strong> {flavor.concept}</p>
           </div>
 
-          <button className="w-full py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-xl font-semibold">
+          <button className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl font-semibold hover:opacity-90 transition">
             Comprar Agora
           </button>
         </motion.div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-black/80 border-t border-gray-900 z-20">
-        <div className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-4 gap-12">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Globe className="text-cyan-400" />
-              <h3 className="text-xl font-bold">Horizonte Viajante</h3>
+      {/* FOOTER PREMIUM */}
+      <footer className="relative z-20 bg-gradient-to-t from-black to-purple-950/20 pt-20 pb-12 px-4 border-t border-purple-900/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
+
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Wine className="w-10 h-10 text-purple-400" />
+                <span className="text-2xl font-bold">
+                  Drinks Experience PRO
+                </span>
+              </div>
+              <p className="text-purple-300/80">
+                Criando experiências sensoriais com drinks autorais e coquetelaria moderna.
+              </p>
             </div>
-            <p className="text-gray-400">
-              Criamos experiências únicas.
-            </p>
+
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-purple-200">
+                Horário do Bar
+              </h4>
+              <div className="space-y-3 text-purple-300/80">
+                <p>Seg-Qui: <span className="text-purple-400 font-semibold">18h - 01h</span></p>
+                <p>Sex-Sáb: <span className="text-purple-400 font-semibold">18h - 03h</span></p>
+                <p>Dom: <span className="text-purple-400 font-semibold">17h - 00h</span></p>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-purple-200">
+                Contato & Reservas
+              </h4>
+              <div className="space-y-3 text-purple-300/80">
+                <p className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Rua Noturna, 777 - Centro
+                </p>
+                <p className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  (11) 99888-7766
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  reservas@drinksexperience.com
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-bold mb-6 text-purple-200">
+                Redes Sociais
+              </h4>
+              <div className="flex gap-4">
+                <a href="#" className="p-3 bg-purple-900/30 rounded-lg hover:bg-purple-800/50 transition">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="p-3 bg-purple-900/30 rounded-lg hover:bg-purple-800/50 transition">
+                  <Facebook className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
           </div>
 
-          <div>
-            <h4 className="font-bold mb-3 flex gap-2">
-              <Shield /> Segurança
-            </h4>
-            <p className="text-gray-400">Entrega segura</p>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-3">Contato</h4>
-            <p className="flex gap-2"><Phone /> (11) 98765-4321</p>
-            <p className="flex gap-2"><MapPin /> São Paulo</p>
+          <div className="text-center text-purple-700/60 text-sm pt-8 border-t border-purple-900/30">
+            © {new Date().getFullYear()} Drinks Experience PRO. Todos os direitos reservados.
           </div>
         </div>
       </footer>
