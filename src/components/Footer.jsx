@@ -42,13 +42,13 @@ const Footer = () => {
           
           <div>
             <h4 className="text-lg font-bold mb-4">Contato</h4>
-            <p className="text-gray-400">contato@digitaltemplates.com</p>
-            <p className="text-gray-400">(11) 99999-9999</p>
+            <p className="text-gray-400">contatoshake@hotmail.com</p>
+            <p className="text-gray-400">(31) 99570-5028</p>
           </div>
         </div>
         
         <div className="text-center text-gray-500 text-sm pt-8 border-t border-gray-800">
-          <p>© {new Date().getFullYear()} Digital Templates Pro. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Wizzard Digital Templates Pro. Todos os direitos reservados.</p>
           <p className="mt-2 flex items-center justify-center gap-1">
             Feito com <Heart className="w-4 h-4 text-red-500" /> para pequenos negócios
           </p>

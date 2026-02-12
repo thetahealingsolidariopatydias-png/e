@@ -10,6 +10,8 @@ import CafeTemplatePro2 from './templates/CafeTemplatePro2';
 import TravelTemplate from './templates/TravelTemplate';
 import TravelTemplatePro from './templates/TravelTemplatePro';
 import Drink from './templates/Drink';
+import Wizzard from './templates/Wizzard';
+
 
 
 
@@ -35,6 +37,7 @@ function App() {
           <Route path="/template/viagens" element={<TravelTemplate />} />
           <Route path="/template/viagensPro" element={<TravelTemplatePro />} />
           <Route path="/template/drink" element={<Drink />} />
+          <Route path="/template/wizzard" element={<Wizzard />} />
 
             <Route path="/template/:id" element={<CafeTemplate />} />
          
